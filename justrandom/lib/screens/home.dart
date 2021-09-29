@@ -11,11 +11,11 @@ class Home extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            FeatureButton(),
-            FeatureButton(),
-            FeatureButton(),
-            FeatureButton(),
-            FeatureButton(),
+            FeatureButton("Dice"),
+            FeatureButton("Wheel of fortune"),
+            FeatureButton("Coin Flip"),
+            FeatureButton("Shuffle list"),
+            FeatureButton("Random number"),
           ],
         ),
       )
