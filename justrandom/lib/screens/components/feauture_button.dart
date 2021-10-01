@@ -6,8 +6,9 @@ import '../dice.dart';
 import '../home.dart';
 
 class FeatureButton extends StatelessWidget {
-  FeatureButton(this.buttonText);
+  FeatureButton(this.buttonText, this.buttonColor);
   var buttonText;
+  Color buttonColor;
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +24,8 @@ class FeatureButton extends StatelessWidget {
         style: TextStyle(fontSize: 15),
       ),
           style: ElevatedButton.styleFrom(
-            primary: kPrimaryColor,
-            fixedSize: Size(MediaQuery.of(context).size.width * 0.90, MediaQuery.of(context).size.height * 0.1)
+            primary: this.buttonColor,
+            fixedSize: Size(MediaQuery.of(context).size.width * 0.90, MediaQuery.of(context).size.height * 0.1),
           ),),
     );
   }

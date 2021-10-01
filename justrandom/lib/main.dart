@@ -1,5 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:justrandom/screens/home.dart';
+import 'package:justrandom/fonts/Abel-Regular.ttf';
+//import 'package:google_fonts/google_fonts.dart';
+
 
 import 'constants.dart';
 void main() {
@@ -12,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Sneaky',
+      title: 'Just Random',
       theme: ThemeData(
         scaffoldBackgroundColor: kBackgroundColor,
         primaryColor: kPrimaryColor,

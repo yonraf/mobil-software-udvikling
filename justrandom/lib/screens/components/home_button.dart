@@ -16,7 +16,8 @@ class HomeButton extends StatelessWidget {
         );
       }, child: Icon(Icons.arrow_back),
         style: ElevatedButton.styleFrom(
-          primary: Colors.transparent,
+          primary: Colors.deepOrange,
+          shape: CircleBorder(),
         )
       ),
     );
