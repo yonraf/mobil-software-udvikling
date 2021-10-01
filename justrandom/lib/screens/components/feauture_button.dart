@@ -5,9 +5,10 @@ import '../dice.dart';
 
 
 class FeatureButton extends StatelessWidget {
-  FeatureButton(this.buttonText, this.buttonColor);
+  FeatureButton(this.buttonText, this.buttonColor, this.feature);
   var buttonText;
   Color buttonColor;
+  StatelessWidget feature;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class FeatureButton extends StatelessWidget {
       child : ElevatedButton(onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => Dice()),
+            MaterialPageRoute(builder: (context) => feature),
           );
         }, child: Text(
           this.buttonText,
