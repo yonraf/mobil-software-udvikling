@@ -1,17 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:justrandom/constants.dart';
-import 'package:justrandom/screens/components/home_button.dart';
 
-import 'home.dart';
+import 'components/top_bar.dart';
 
 class Dice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: kPrimaryColor,
+      color: kBackgroundColor,
       child: Column(
-        children: [HomeButton(kDiceThemeColor),
+        children: [
+          TopBar(kDiceThemeColor, "Dice Throw")
         ],
       ),
     );
