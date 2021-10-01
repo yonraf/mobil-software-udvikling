@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import '../home.dart';
 
 class HomeButton extends StatelessWidget {
+  HomeButton(this.buttonColor);
+  Color buttonColor;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,7 @@ class HomeButton extends StatelessWidget {
         );
       }, child: Icon(Icons.arrow_back),
         style: ElevatedButton.styleFrom(
-          primary: Colors.deepOrange,
+          primary: buttonColor,
           shape: CircleBorder(),
         )
       ),

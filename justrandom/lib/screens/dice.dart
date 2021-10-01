@@ -11,7 +11,7 @@ class Dice extends StatelessWidget {
     return Container(
       color: kPrimaryColor,
       child: Column(
-        children: [HomeButton(),
+        children: [HomeButton(kDiceThemeColor),
         ],
       ),
     );
