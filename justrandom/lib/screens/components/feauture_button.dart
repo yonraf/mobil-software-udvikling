@@ -12,7 +12,7 @@ class FeatureButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.05),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.05),
       child : ElevatedButton(onPressed: () {
           Navigator.push(
             context,
@@ -20,7 +20,11 @@ class FeatureButton extends StatelessWidget {
           );
         }, child: Text(
           this.buttonText,
-        style: TextStyle(fontSize: 15),
+        style: TextStyle(
+          fontSize: MediaQuery.of(context).size.height * 0.04,
+          fontFamily: 'Abel',
+          fontWeight: FontWeight.w200,
+        ),
       ),
           style: ElevatedButton.styleFrom(
             primary: this.buttonColor,
