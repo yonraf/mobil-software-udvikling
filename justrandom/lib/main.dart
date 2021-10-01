@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:justrandom/screens/home.dart';
-import 'package:justrandom/fonts/Abel-Regular.ttf';
-//import 'package:google_fonts/google_fonts.dart';
 
 
 import 'constants.dart';
