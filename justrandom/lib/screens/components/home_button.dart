@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../home.dart';
+import '../randomizers/home.dart';
 
 class HomeButton extends StatelessWidget {
   HomeButton(this.buttonColor);

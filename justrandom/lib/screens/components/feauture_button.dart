@@ -1,26 +1,25 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../dice.dart';
+import '../randomizer.dart';
+import '../randomizers/dice.dart';
 
 
 class FeatureButton extends StatelessWidget {
-  FeatureButton(this.buttonText, this.buttonColor, this.feature);
-  var buttonText;
-  Color buttonColor;
-  StatelessWidget feature;
+  FeatureButton(this.randomizer);
+  Randomizer randomizer;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.05),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.03),
       child : ElevatedButton(onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => feature),
+            MaterialPageRoute(builder: (context) => this.randomizer),
           );
         }, child: Text(
-          this.buttonText,
+          this.randomizer.name,
         style: TextStyle(
           fontSize: MediaQuery.of(context).size.height * 0.04,
           fontFamily: 'Abel',
@@ -28,7 +27,7 @@ class FeatureButton extends StatelessWidget {
         ),
       ),
           style: ElevatedButton.styleFrom(
-            primary: this.buttonColor,
+            primary: this.randomizer.themeColor,
             fixedSize: Size(MediaQuery.of(context).size.width * 0.90, MediaQuery.of(context).size.height * 0.1),
           ),),
     );
