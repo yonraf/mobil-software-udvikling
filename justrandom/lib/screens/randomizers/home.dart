@@ -20,6 +20,13 @@ class Home extends StatelessWidget {
           //main
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
+            Padding(
+              padding: EdgeInsets.fromLTRB(0, 5, 0, MediaQuery.of(context).size.height * 0.03),
+              child: Image(
+                image: AssetImage('assets/logo.png'),
+                height: 45,
+              ),
+            ),
             FeatureButton(Dice()),
             FeatureButton(ListShuffle()),
             FeatureButton(WheelOfFortune()),
