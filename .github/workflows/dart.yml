@@ -27,4 +27,4 @@ jobs:
     - name: Install app dependencies
       run: chmod +x ./ci/flutter-pubget.sh && ./ci/flutter-pubget.sh
     - name: Test app
-      run: flutter test --coverage
+      run: chmod +x ./ci/test-app.sh && ./ci/test-app.sh
