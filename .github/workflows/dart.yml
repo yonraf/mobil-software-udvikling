@@ -25,6 +25,6 @@ jobs:
       env:
         ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
     - name: Install app dependencies
-      run: flutter pub get
+      run: chmod +x ./ci/flutter-pubget.sh && ./ci/flutter-pubget.sh
     - name: Test app
       run: flutter test --coverage
