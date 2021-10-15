@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:justrandom/screens/randomizers/dice.dart';
 import 'package:justrandom/screens/randomizers/home.dart';
 
 
