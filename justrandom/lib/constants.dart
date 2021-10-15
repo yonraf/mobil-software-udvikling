@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 
 //Indsæt farver og padding for tema
 
-const kPrimaryColor = Color.fromARGB(0xFF, 0xFF, 0x57, 0x57);
+const kPrimaryColor = Color.fromARGB(0xFF, 0x2A, 0x9D, 0x8F);
 const kTextColor = Color.fromARGB(0xFF, 0x28, 0x18, 0x46);
 const kBackgroundColor = Color.fromARGB(0xFF, 0xEE, 0xEE, 0xED);
 

@@ -16,8 +16,6 @@ class Home extends StatelessWidget {
       body: Align(
         alignment: Alignment.center,
         child: Column(
-          //crossAxisAlignment: CrossAxisAlignment.center,
-          //main
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Padding(

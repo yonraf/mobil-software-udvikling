@@ -34,4 +34,5 @@ class CoinFlip extends StatelessWidget implements Randomizer {
   void run() {
     // TODO: implement run
   }
+
 }
