@@ -7,15 +7,9 @@ import 'package:justrandom/constants.dart';
 import '../components/top_bar.dart';
 import '../randomizer.dart';
 
-class Dice extends StatefulWidget {
+class Dice extends StatefulWidget implements Randomizer {
   Dice();
 
-  @override
-  _DiceState createState() => _DiceState();
-  
-}
-
-class _DiceState extends State<Dice> implements Randomizer{
   @override
   String description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
 
@@ -24,6 +18,13 @@ class _DiceState extends State<Dice> implements Randomizer{
 
   @override
   Color themeColor = kDiceThemeColor;
+
+  @override
+  _DiceState createState() => _DiceState();
+  
+}
+
+class _DiceState extends State<Dice> {
 
   var imageArray = ["one.png", "two.png", "three.png", "four.png", "five.png", "six.png"];
   int randomIntForDiceOne = Random().nextInt(6);
@@ -56,21 +57,29 @@ class _DiceState extends State<Dice> implements Randomizer{
               ],
             ),
           ),
-          ElevatedButton(onPressed: run,
-            child: const Text("Roll Dice"),
-          )
-          /*Padding(
-            padding: const EdgeInsets.only(top: 60),
-            child: ElevatedButton(onPressed: changeImage,
-                child: const Text("Roll Dice"),
+
+          // Action Knap
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              primary: Dice().themeColor,
+              fixedSize: Size(MediaQuery.of(context).size.width * 0.90, MediaQuery.of(context).size.height * 0.1),
             ),
-          )*/
+            onPressed: run,
+            child: const Text(
+              "Roll Dice",
+              style: TextStyle(
+                fontSize: 30,
+                fontFamily: 'Abel',
+                fontWeight: FontWeight.w200,
+              ),
+            ),
+          )
         ],
       ),
     );
   }
 
-  @override
+
   void run() {
     setState(() {
       randomIntForDiceOne = Random().nextInt(6);
