@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:justrandom/constants.dart';
+import 'package:justrandom/screens/components/action_button.dart';
 
 import '../components/top_bar.dart';
 import '../randomizer.dart';
@@ -22,7 +23,8 @@ class CoinFlip extends StatelessWidget implements Randomizer {
       color: kBackgroundColor,
       child: Column(
         children: [
-          TopBar(CoinFlip())
+          TopBar(CoinFlip()),
+          ActionButton(CoinFlip(), "Flip")
         ],
       ),
     );
