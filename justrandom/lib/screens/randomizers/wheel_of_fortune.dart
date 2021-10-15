@@ -10,16 +10,7 @@ import 'package:justrandom/screens/components/action_button.dart';
 import '../components/top_bar.dart';
 import '../randomizer.dart';
 
-class WheelOfFortune extends StatelessWidget implements Randomizer {
-  //StreamController<int> selected = StreamController<int>();
-  var inputs = <String>[
-    "Mustafa",
-    "Kiko",
-    "Baba",
-    "FTP",
-    "Cingo",
-  ];
-
+class WheelOfFortune extends StatefulWidget implements Randomizer {
   @override
   String description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
 
@@ -28,6 +19,14 @@ class WheelOfFortune extends StatelessWidget implements Randomizer {
 
   @override
   Color themeColor = kWheelThemeColor;
+
+  WheelOfFortune();
+
+  @override
+  _WheelOfFortuneState createState() => _WheelOfFortuneState();
+}
+
+class _WheelOfFortuneState extends State<WheelOfFortune> {
 
   @override
   Widget build(BuildContext context) {
@@ -50,11 +49,6 @@ class WheelOfFortune extends StatelessWidget implements Randomizer {
         ),
       ),
     );
-  }
-
-  @override
-  void run() {
-    // TODO: implement run
   }
 }
 

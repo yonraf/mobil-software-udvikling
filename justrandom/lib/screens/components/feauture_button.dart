@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../randomizer.dart';
-import '../randomizers/dice.dart';
 
 
 class FeatureButton extends StatelessWidget {

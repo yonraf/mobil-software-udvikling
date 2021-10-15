@@ -6,8 +6,7 @@ import 'package:justrandom/screens/randomizer.dart';
 
 import '../components/top_bar.dart';
 
-class ListShuffle extends StatelessWidget implements Randomizer{
-
+class ListShuffle extends StatefulWidget implements Randomizer {
   @override
   String description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
 
@@ -16,6 +15,16 @@ class ListShuffle extends StatelessWidget implements Randomizer{
 
   @override
   Color themeColor = kShuffleThemeColor;
+
+  ListShuffle();
+
+  @override
+  _ListShuffleState createState() =>  _ListShuffleState();
+
+}
+
+class _ListShuffleState extends State<ListShuffle> {
+
 
   @override
   Widget build(BuildContext context) {
@@ -30,8 +39,4 @@ class ListShuffle extends StatelessWidget implements Randomizer{
     );
   }
 
-  @override
-  void run() {
-    // TODO: implement run
-  }
 }

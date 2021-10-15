@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:justrandom/constants.dart';
 import 'package:justrandom/screens/components/feauture_button.dart';
 import 'package:justrandom/screens/randomizers/random_number.dart';
 import 'package:justrandom/screens/randomizers/wheel_of_fortune.dart';
