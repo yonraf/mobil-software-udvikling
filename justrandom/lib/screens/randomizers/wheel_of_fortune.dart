@@ -4,8 +4,6 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:justrandom/constants.dart';
-import 'package:flutter_fortune_wheel/flutter_fortune_wheel.dart';
-import 'package:justrandom/screens/components/action_button.dart';
 
 import '../components/top_bar.dart';
 import '../randomizer.dart';
@@ -44,7 +42,6 @@ class _WheelOfFortuneState extends State<WheelOfFortune> {
                 }, child: Text('+'))
               ],
             ),
-            ActionButton(WheelOfFortune(), 'SPIN')
           ],
         ),
       ),

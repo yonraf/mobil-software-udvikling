@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:justrandom/constants.dart';
-import 'package:justrandom/screens/components/action_button.dart';
+
 
 import '../components/top_bar.dart';
 import '../randomizer.dart';
@@ -32,7 +32,6 @@ class _CoinFlipState extends State<CoinFlip> {
       child: Column(
         children: [
           TopBar(CoinFlip()),
-          ActionButton(CoinFlip(), "Flip")
         ],
       ),
     );
