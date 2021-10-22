@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:justrandom/constants.dart';
-// import 'package:justrandom/screens/components/action_button.dart';
+
 import 'package:justrandom/screens/randomizer.dart';
 
 import '../components/top_bar.dart';
@@ -33,7 +33,7 @@ class _ListShuffleState extends State<ListShuffle> {
       child: Column(
         children: [
           TopBar(ListShuffle()),
-         // ActionButton(ListShuffle(), "Shuffle")
+
         ],
       ),
     );
