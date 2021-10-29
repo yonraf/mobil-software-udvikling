@@ -74,6 +74,62 @@ class _DiceState extends State<Dice> {
                 fontWeight: FontWeight.w200,
               ),
             ),
+          ),
+
+          Container(
+              padding: const EdgeInsets.all(3),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  color: Colors.black),
+            child: Row(
+              children: [
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Dice().themeColor,
+                    fixedSize: Size(MediaQuery.of(context).size.width * 0.30, MediaQuery.of(context).size.height * 0.1),
+                  ),
+                  onPressed: run,
+                  child: const Text(
+                    "+",
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontFamily: 'Abel',
+                      fontWeight: FontWeight.w200,
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 3),
+                  padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 2),
+                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(3), color: Colors.white),
+                  child: Text(
+                    '2',
+                    style: const TextStyle(
+                        fontFamily: 'Abel',
+                        color: Colors.black,
+                        fontWeight: FontWeight.w200,
+                        decoration: TextDecoration.none,
+                        fontSize: 30
+                    ),
+                  )
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Dice().themeColor,
+                    fixedSize: Size(MediaQuery.of(context).size.width * 0.30, MediaQuery.of(context).size.height * 0.1),
+                  ),
+                  onPressed: run,
+                  child: const Text(
+                    "-",
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontFamily: 'Abel',
+                      fontWeight: FontWeight.w200,
+                    ),
+                  ),
+                )
+              ],
+            )
           )
         ],
       ),
