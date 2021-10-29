@@ -5,8 +5,7 @@ import 'package:justrandom/constants.dart';
 import '../components/top_bar.dart';
 import '../randomizer.dart';
 
-class CoinFlip extends StatelessWidget implements Randomizer {
-
+class CoinFlip extends StatefulWidget implements Randomizer {
   @override
   String description = 'Flip the coin to make a decision between two options';
 
@@ -15,6 +14,15 @@ class CoinFlip extends StatelessWidget implements Randomizer {
 
   @override
   Color themeColor = kCoinThemeColor;
+
+  CoinFlip();
+
+  @override
+  _CoinFlipState createState() => _CoinFlipState();
+}
+
+
+class _CoinFlipState extends State<CoinFlip> {
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +34,5 @@ class CoinFlip extends StatelessWidget implements Randomizer {
         ],
       ),
     );
-  }
-
-  @override
-  void run() {
-    // TODO: implement run
   }
 }
