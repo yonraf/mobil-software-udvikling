@@ -33,10 +33,9 @@ class _DiceState extends State<Dice> {
     "five.png",
     "six.png"
   ];
-
-  int randomIntForDiceOne = Random().nextInt(6);
-  int randomIntForDiceTwo = Random().nextInt(6);
-  int diceCount = 2;
+  
+  int diceCount = 1;
+  var randomValues = [Random().nextInt(6)];
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +48,7 @@ class _DiceState extends State<Dice> {
             padding: const EdgeInsets.fromLTRB(0, 50, 0, 0),
             child: Text(
               "You Rolled: " +
-                  (randomIntForDiceOne + randomIntForDiceTwo + 2).toString(),
+                  (randomValues.reduce((a, b) => a + b) + diceCount).toString(),
               style: const TextStyle(
                   fontFamily: 'Abel',
                   color: Colors.black,
@@ -62,7 +61,7 @@ class _DiceState extends State<Dice> {
             padding: const EdgeInsets.fromLTRB(0, 50, 0, 170),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
+              /*children: [
                 Image.asset(
                   "assets/" + imageArray[randomIntForDiceOne],
                   height: 150,
@@ -73,7 +72,12 @@ class _DiceState extends State<Dice> {
                   height: 150,
                   width: 150,
                 )
-              ],
+              ],*/
+              children: [for (var number in randomValues) Image.asset(
+                "assets/" + imageArray[number],
+                height: 150,
+                width: 150,
+              )],
             ),
           ),
 
@@ -156,8 +160,10 @@ class _DiceState extends State<Dice> {
 
   void run() {
     setState(() {
-      randomIntForDiceOne = Random().nextInt(6);
-      randomIntForDiceTwo = Random().nextInt(6);
+      randomValues.clear();
+      for (var i = 0; i < diceCount; i++){
+        randomValues.add(Random().nextInt(6));
+      }
     });
   }
 
@@ -167,6 +173,7 @@ class _DiceState extends State<Dice> {
     }
     setState(() {
       diceCount++;
+      randomValues.add(Random().nextInt(6));
     });
   }
 
@@ -176,6 +183,7 @@ class _DiceState extends State<Dice> {
     }
     setState(() {
       diceCount--;
+      randomValues.removeLast();
     });
   }
 
