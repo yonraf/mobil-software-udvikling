@@ -154,8 +154,10 @@ class _WheelOfFortuneState extends State<WheelOfFortune> {
               onPressed: () {
                 if (inputs.length > 2) {
                   this.inputs.remove(input);
-                  setState(() {});
+                } else {
+                  inputs[inputs.indexOf(input)] = "";
                 }
+                setState(() {});
               },
               icon: Icon(Icons.clear),
               color: Colors.redAccent,

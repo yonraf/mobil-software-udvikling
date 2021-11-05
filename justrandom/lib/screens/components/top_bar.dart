@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:justrandom/screens/components/help_button.dart';
 import 'package:justrandom/screens/components/home_button.dart';
 
 import '../randomizer.dart';
@@ -22,6 +23,9 @@ class TopBar extends StatelessWidget {
           fontSize: 40,
         ),),
         leading : HomeButton(randomizer.themeColor),
+        actions: [
+          HelpButton(randomizer)
+        ],
         centerTitle: true,
         backgroundColor: Colors.transparent,
         shadowColor: Colors.transparent,
