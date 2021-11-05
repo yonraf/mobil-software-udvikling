@@ -17,14 +17,11 @@ class RandomNumber extends StatefulWidget implements Randomizer {
   @override
   Color themeColor = kNumberThemeColor;
 
-
-
   RandomNumber();
 
   @override
   _RandomNumberState createState() => _RandomNumberState();
 }
-
 
 
 class _RandomNumberState extends State<RandomNumber> {
@@ -95,9 +92,22 @@ class _RandomNumberState extends State<RandomNumber> {
               ]
           )
       )
+
+class _RandomNumberState extends State<RandomNumber> {
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: kBackgroundColor,
+      child: Column(
+        children: [
+          TopBar(RandomNumber()),
+        ],
+      ),
     );
 
   }
+
 
   void run (){
     setState(() {
