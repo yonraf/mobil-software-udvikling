@@ -15,3 +15,9 @@ const kCoinThemeColor = Color.fromARGB(0xFF, 0xE7, 0x6F, 0x51);
 const kDarkerDetailColor = Color.fromARGB(0xFF, 0x28, 0x28, 0x46);
 
 const double kDefaultPadding = 20.0;
+
+const kButtonTextStyle = TextStyle(
+  fontSize: 30,
+  fontFamily: 'Abel',
+  fontWeight: FontWeight.w200,
+);
