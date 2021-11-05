@@ -33,8 +33,10 @@ class _DiceState extends State<Dice> {
     "five.png",
     "six.png"
   ];
+
   int randomIntForDiceOne = Random().nextInt(6);
   int randomIntForDiceTwo = Random().nextInt(6);
+  int diceCount = 2;
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +59,7 @@ class _DiceState extends State<Dice> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(0, 50, 0, 100),
+            padding: const EdgeInsets.fromLTRB(0, 50, 0, 170),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -93,7 +95,7 @@ class _DiceState extends State<Dice> {
                       fixedSize: Size(MediaQuery.of(context).size.width * 0.3,
                           MediaQuery.of(context).size.height * 0.1),
                     ),
-                    onPressed: run,
+                    onPressed: decrement,
                     child: const Text(
                       "-",
                       style: kButtonTextStyle,
@@ -111,7 +113,7 @@ class _DiceState extends State<Dice> {
                           height: MediaQuery.of(context).size.height * 0.1
                       ),
                       child: Text(
-                        '2',
+                        "$diceCount",
                         style: const TextStyle(
                             fontFamily: 'Abel',
                             color: Colors.black,
@@ -125,7 +127,7 @@ class _DiceState extends State<Dice> {
                       fixedSize: Size(MediaQuery.of(context).size.width * 0.3,
                           MediaQuery.of(context).size.height * 0.1),
                     ),
-                    onPressed: run,
+                    onPressed: incrementDice,
                     child: const Text(
                       "+",
                       style: kButtonTextStyle,
@@ -158,4 +160,23 @@ class _DiceState extends State<Dice> {
       randomIntForDiceTwo = Random().nextInt(6);
     });
   }
+
+  void incrementDice() {
+    if (diceCount > 3) {
+      return;
+    }
+    setState(() {
+      diceCount++;
+    });
+  }
+
+  void decrement() {
+    if (diceCount < 2) {
+      return;
+    }
+    setState(() {
+      diceCount--;
+    });
+  }
+
 }
