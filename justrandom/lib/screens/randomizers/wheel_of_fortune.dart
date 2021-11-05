@@ -10,6 +10,7 @@ import '../components/top_bar.dart';
 import '../randomizer.dart';
 
 class WheelOfFortune extends StatefulWidget implements Randomizer {
+
   WheelOfFortune();
 
   @override
@@ -104,6 +105,7 @@ class _WheelOfFortuneState extends State<WheelOfFortune> {
           )
         ]));
   }
+
 
   @override
   void dispose() {
@@ -202,3 +204,4 @@ class _WheelOfFortuneState extends State<WheelOfFortune> {
         });
   }
 }
+

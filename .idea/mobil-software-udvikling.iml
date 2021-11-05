@@ -6,6 +6,8 @@
       <excludeFolder url="file://$MODULE_DIR$/justrandom/build" />
       <excludeFolder url="file://$MODULE_DIR$/justrandom/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/justrandom/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/.idea/libraries" />
+      <excludeFolder url="file://$MODULE_DIR$/justrandom/android/app/src/main/java" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

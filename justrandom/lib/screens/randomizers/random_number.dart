@@ -17,14 +17,11 @@ class RandomNumber extends StatefulWidget implements Randomizer {
   @override
   Color themeColor = kNumberThemeColor;
 
-
-
   RandomNumber();
 
   @override
   _RandomNumberState createState() => _RandomNumberState();
 }
-
 
 
 class _RandomNumberState extends State<RandomNumber> {
@@ -34,8 +31,7 @@ class _RandomNumberState extends State<RandomNumber> {
 
   @override
   Widget build(BuildContext context) {
-
-    return new Scaffold(
+    return Scaffold(
       body: Container(
           color: kBackgroundColor,
           child: Column(
@@ -47,7 +43,7 @@ class _RandomNumberState extends State<RandomNumber> {
                       children: [
                         Text(
                           'Randomly Generated number: $randomNumber',
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontFamily: 'Abel',
                             color: Colors.red,
                             fontWeight: FontWeight.w200,
@@ -64,7 +60,7 @@ class _RandomNumberState extends State<RandomNumber> {
                             )
                         )
                         ,
-                        new TextField(
+                        TextField(
                           decoration: new InputDecoration(labelText: "Minimum number"),
                           controller: minNumber,
                           keyboardType: TextInputType.number,
@@ -72,7 +68,7 @@ class _RandomNumberState extends State<RandomNumber> {
                             FilteringTextInputFormatter.digitsOnly
                           ], // Only numbers can be entered
                         ),
-                        new TextField(
+                        TextField(
                           decoration: new InputDecoration(labelText: "Maximum number"),
                           controller: maxNumber,
                           keyboardType: TextInputType.number,
@@ -96,8 +92,8 @@ class _RandomNumberState extends State<RandomNumber> {
           )
       )
     );
+}
 
-  }
 
   void run (){
     setState(() {
