@@ -23,14 +23,6 @@ class WheelOfFortune extends StatefulWidget implements Randomizer {
   @override
   Color themeColor = kWheelThemeColor;
 
-  WheelOfFortune();
-
-  @override
-  _WheelOfFortuneState createState() => _WheelOfFortuneState();
-}
-
-class _WheelOfFortuneState extends State<WheelOfFortune> {
-
   @override
   _WheelOfFortuneState createState() => _WheelOfFortuneState();
 }
