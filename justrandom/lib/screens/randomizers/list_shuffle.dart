@@ -21,18 +21,9 @@ class ListShuffle extends StatefulWidget implements Randomizer {
   @override
   Color themeColor = kShuffleThemeColor;
 
-  ListShuffle();
-
   @override
   _ListShuffleState createState() =>  _ListShuffleState();
 
-}
-
-class _ListShuffleState extends State<ListShuffle> {
-
-
-  @override
-  _ListShuffleState createState() =>  _ListShuffleState();
 }
 
 class _ListShuffleState extends State<ListShuffle> {
