@@ -36,70 +36,73 @@ class _WheelOfFortuneState extends State<WheelOfFortune> {
     '',
   ];
 
-  //StreamController<int> controller = StreamController<int>();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         resizeToAvoidBottomInset: false,
         body: Column(children: [
-      TopBar(WheelOfFortune()),
+          TopBar(WheelOfFortune()),
 
-      // WHEEL OF FORTUNE
-      GestureDetector(
-        child: Container(
-          child: FortuneWheel(
-            items: [for (var input in inputs) FortuneItem(child: Text(input))],
-            animateFirst: false,
-            selected: selected.stream,
-          ),
-          height: 300,
-          margin: EdgeInsets.only(top: 40),
-        ),
-        onTap: () {
-          cooldownControl();
-        },
-      ),
-
-      Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            padding: EdgeInsets.only(top: 30),
-            width: 200,
-            height: 70,
-            child: TextField(
-              onSubmitted: (String str) { addName();},
-              controller: inputController,
-              decoration: const InputDecoration(
-                contentPadding: EdgeInsets.only(top: 0, left: 10),
-                border: OutlineInputBorder(),
-                hintText: 'Enter a variable',
+          // WHEEL OF FORTUNE
+          GestureDetector(
+            child: Container(
+              child: FortuneWheel(
+                items: [
+                  for (var input in inputs) FortuneItem(child: Text(input,))
+                ],
+                animateFirst: false,
+                selected: selected.stream,
               ),
+              height: MediaQuery.of(context).size.height * 0.4,
+              margin: EdgeInsets.only(top: 40),
             ),
+            onTap: () {
+              cooldownControl();
+            },
           ),
-          Container(
-            padding: EdgeInsets.only(top: 30),
-            margin: EdgeInsets.only(left: 10),
-            height: 70,
-            child: ElevatedButton(
-              onPressed: () {
-                addName();
-              },
-              child: Icon(Icons.add),
-              style: ElevatedButton.styleFrom(
-                primary: Colors.green,
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                padding: EdgeInsets.only(top: 30),
+                width: 200,
+                height: 70,
+                child: TextField(
+                  onSubmitted: (String str) {
+                    addName();
+                  },
+                  controller: inputController,
+                  decoration: const InputDecoration(
+                    contentPadding: EdgeInsets.only(top: 0, left: 10),
+                    border: OutlineInputBorder(),
+                    hintText: 'Enter a variable',
+                  ),
+                ),
               ),
+              Container(
+                padding: EdgeInsets.only(top: 30),
+                margin: EdgeInsets.only(left: 10),
+                height: 70,
+                child: ElevatedButton(
+                  onPressed: () {
+                    //AlertDialog(1);
+                    addName();
+                  },
+                  child: Icon(Icons.add),
+                  style: ElevatedButton.styleFrom(
+                    primary: kWheelThemeColor,
+                  ),
+                ),
+              )
+            ],
+          ),
+          Expanded(
+            child: ListView(
+              children: [for (var input in inputs.reversed) InputField(input)],
             ),
           )
-        ],
-      ),
-      Expanded(
-        child: ListView(
-          children: [for (var input in inputs.reversed) inputField(input)],
-        ),
-      )
-    ]));
+        ]));
   }
 
   @override
@@ -112,10 +115,15 @@ class _WheelOfFortuneState extends State<WheelOfFortune> {
   void cooldownControl() {
     setState(() {
       if (!_spinCooldown) {
-        selected.add(Random().nextInt(inputs.length));
+        var randValue = Random().nextInt(inputs.length);
+        selected.add(randValue);
         setState(() => _spinCooldown = true);
         Timer(
-            Duration(seconds: 5), () => setState(() => _spinCooldown = false));
+            Duration(seconds: 5),
+            () => setState(() {
+                  AlertDialog(randValue);
+                  _spinCooldown = false;
+                }));
       }
     });
   }
@@ -132,7 +140,7 @@ class _WheelOfFortuneState extends State<WheelOfFortune> {
     }
   }
 
-  Widget inputField(String input) {
+  Widget InputField(String input) {
     if (input.isNotEmpty) {
       return Container(
         alignment: Alignment.topLeft,
@@ -153,6 +161,44 @@ class _WheelOfFortuneState extends State<WheelOfFortune> {
           ],
         ),
       );
-    } else {return Container();}
+    } else {
+      return Container();
     }
+  }
+
+  void AlertDialog(int value) {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return CupertinoAlertDialog(
+            insetAnimationCurve: Curves.elasticInOut,
+            title: Text(inputs[value] + " was chosen"),
+            content: Text("Remove field or continue?"),
+            actions: [
+              CupertinoDialogAction(
+                  child: Text(
+                      "Remove",
+                    style: TextStyle(
+                      color: Colors.redAccent,
+                    ),
+                  ),
+                  onPressed: () {
+                    if (inputs.length > 2) {
+                      this.inputs.remove(inputs[value]);
+                    } else {
+                      inputs[value] = '';
+                    }
+                    Navigator.of(context).pop();
+                    setState(() {});
+                  }),
+              CupertinoDialogAction(
+                  child: Text("Continue"),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                    setState(() {});
+                  })
+            ],
+          );
+        });
+  }
 }
