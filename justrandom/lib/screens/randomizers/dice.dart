@@ -33,9 +33,9 @@ class _DiceState extends State<Dice> {
     "five.png",
     "six.png"
   ];
-  
+
   int diceCount = 1;
-  var randomValues = [Random().nextInt(6)];
+  var diceNumbers = [Random().nextInt(6)];
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +48,7 @@ class _DiceState extends State<Dice> {
             padding: const EdgeInsets.fromLTRB(0, 50, 0, 0),
             child: Text(
               "You Rolled: " +
-                  (randomValues.reduce((a, b) => a + b) + diceCount).toString(),
+                  (diceNumbers.reduce((a, b) => a + b) + diceCount).toString(),
               style: const TextStyle(
                   fontFamily: 'Abel',
                   color: Colors.black,
@@ -73,11 +73,14 @@ class _DiceState extends State<Dice> {
                   width: 150,
                 )
               ],*/
-              children: [for (var number in randomValues) Image.asset(
-                "assets/" + imageArray[number],
-                height: 150,
-                width: 150,
-              )],
+              children: [
+                for (var number in diceNumbers)
+                  Image.asset(
+                    "assets/" + imageArray[number],
+                    height: 150,
+                    width: 150,
+                  )
+              ],
             ),
           ),
 
@@ -86,11 +89,11 @@ class _DiceState extends State<Dice> {
               margin: const EdgeInsets.fromLTRB(0, 0, 0, 25),
               padding: const EdgeInsets.fromLTRB(0, 3, 0, 3),
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5), color: Dice().themeColor),
+                  borderRadius: BorderRadius.circular(5),
+                  color: Dice().themeColor),
               constraints: BoxConstraints.expand(
                   width: MediaQuery.of(context).size.width * 0.90,
-                  height: MediaQuery.of(context).size.height * 0.1
-              ),
+                  height: MediaQuery.of(context).size.height * 0.1),
               child: Row(
                 children: [
                   ElevatedButton(
@@ -114,8 +117,7 @@ class _DiceState extends State<Dice> {
                           color: Colors.white),
                       constraints: BoxConstraints.expand(
                           width: MediaQuery.of(context).size.width * 0.3,
-                          height: MediaQuery.of(context).size.height * 0.1
-                      ),
+                          height: MediaQuery.of(context).size.height * 0.1),
                       child: Text(
                         "$diceCount",
                         style: const TextStyle(
@@ -160,9 +162,12 @@ class _DiceState extends State<Dice> {
 
   void run() {
     setState(() {
-      randomValues.clear();
-      for (var i = 0; i < diceCount; i++){
-        randomValues.add(Random().nextInt(6));
+      // clear all previous diceNumbers
+      diceNumbers.clear();
+
+      // based on diceCount we roll new diceNumbers
+      for (var i = 0; i < diceCount; i++) {
+        diceNumbers.add(Random().nextInt(6));
       }
     });
   }
@@ -173,7 +178,7 @@ class _DiceState extends State<Dice> {
     }
     setState(() {
       diceCount++;
-      randomValues.add(Random().nextInt(6));
+      diceNumbers.add(Random().nextInt(6));
     });
   }
 
@@ -183,8 +188,7 @@ class _DiceState extends State<Dice> {
     }
     setState(() {
       diceCount--;
-      randomValues.removeLast();
+      diceNumbers.removeLast();
     });
   }
-
 }

@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f368d41e-346e-46c2-a44c-0e89ce3591e9" name="Default Changelist" comment="Dice Throw Updated&#10;- &quot;+, -&quot; buttons added&#10;- layout &amp; colors fixed">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="f368d41e-346e-46c2-a44c-0e89ce3591e9" name="Default Changelist" comment="Dice Throw Updated V2&#10;- Add/remove more dices&#10;- Generate random numbers based on dice number">
       <change beforePath="$PROJECT_DIR$/justrandom/lib/screens/randomizers/dice.dart" beforeDir="false" afterPath="$PROJECT_DIR$/justrandom/lib/screens/randomizers/dice.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,7 +87,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636110604608</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Dice Throw Updated V2&#10;- Add/remove more dices&#10;- Generate random numbers based on dice number">
+      <created>1636114121744</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1636114121744</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -106,6 +112,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="sdada" />
     <MESSAGE value="Dice Throw Updated&#10;- &quot;+, -&quot; buttons added&#10;- layout &amp; colors fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dice Throw Updated&#10;- &quot;+, -&quot; buttons added&#10;- layout &amp; colors fixed" />
+    <MESSAGE value="Dice Throw Updated V2&#10;- Add/remove more dices&#10;- Generate random numbers based on dice number" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dice Throw Updated V2&#10;- Add/remove more dices&#10;- Generate random numbers based on dice number" />
   </component>
 </project>
