@@ -45,16 +45,19 @@ class _ListShuffleState extends State<ListShuffle> {
             children: [
               Container(
                 padding: EdgeInsets.only(top: 30),
-                width: 200,
+                width: 300,
                 height: 70,
-                child: TextField(
-                  autofocus: true,
-                  onSubmitted: (String str) { addElement();},
-                  controller: inputController,
-                  decoration: const InputDecoration(
-                    contentPadding: EdgeInsets.only(top: 0, left: 10),
-                    border: OutlineInputBorder(),
-                    hintText: 'Enter element',
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 50, 0, 0),
+                  child: TextField(
+                    autofocus: true,
+                    onSubmitted: (String str) { addElement();},
+                    controller: inputController,
+                    decoration: const InputDecoration(
+                      contentPadding: EdgeInsets.only(top: 0, left: 10),
+                      border: OutlineInputBorder(),
+                      hintText: 'Enter element',
+                    ),
                   ),
                 ),
               ),
@@ -134,7 +137,12 @@ class _ListShuffleState extends State<ListShuffle> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(input),
+            Text(
+              input,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                ),
+            ),
             IconButton(
               onPressed: () {
                 if (inputs.isNotEmpty) {
