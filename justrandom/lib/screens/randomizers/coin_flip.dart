@@ -30,7 +30,8 @@ class _CoinFlipState extends State<CoinFlip> {
       color: kBackgroundColor,
       child: Column(
         children: [
-          TopBar(CoinFlip())
+          TopBar(CoinFlip()),
+
         ],
       ),
     );
