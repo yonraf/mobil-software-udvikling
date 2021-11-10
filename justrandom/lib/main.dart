@@ -1,6 +1,6 @@
+import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:justrandom/screens/randomizers/dice.dart';
 import 'package:justrandom/screens/randomizers/home.dart';
 
 
@@ -17,11 +17,13 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Just Random',
       theme: ThemeData(
+        primarySwatch: Colors.green,
         scaffoldBackgroundColor: kBackgroundColor,
         primaryColor: kPrimaryColor,
         textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor),
         fontFamily: 'Abel'
       ),
+      //home: Home(),
       home: Home(),
     );
   }
