@@ -13,7 +13,7 @@ class ListShuffle extends StatefulWidget implements Randomizer {
   ListShuffle();
   
   @override
-  String description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
+  String description = 'Shuffle list will take a list of elements and shuffle it random';
 
   @override
   String name = 'Shuffle List';
@@ -30,9 +30,10 @@ class _ListShuffleState extends State<ListShuffle> {
   StreamController<int> selected = StreamController();
   final inputController = TextEditingController();
   late FocusNode focusNode;
+  late String shuffleText;
 
   List<String> inputs = [];
-  String shuffleText = '';
+
 
   @override
   Widget build(BuildContext context) {
@@ -47,8 +48,6 @@ class _ListShuffleState extends State<ListShuffle> {
                 padding: EdgeInsets.only(top: 30),
                 width: 300,
                 height: 70,
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 50, 0, 0),
                   child: TextField(
                     autofocus: true,
                     onSubmitted: (String str) { addElement();},
@@ -59,7 +58,6 @@ class _ListShuffleState extends State<ListShuffle> {
                       hintText: 'Enter element',
                     ),
                   ),
-                ),
               ),
               Container(
                 padding: EdgeInsets.only(top: 30),
@@ -160,9 +158,19 @@ class _ListShuffleState extends State<ListShuffle> {
     } else {return Container();}
   }
 
+  void resetShuffleText(){
+    shuffleText = '';
+  }
+
   void _showDialog() {
+    resetShuffleText();
     inputs.shuffle();
-    shuffleText = inputs.join(', ');
+    int num = 1;
+
+    for (var element in inputs) {
+      shuffleText += (num.toString() + ':    ' + element + '\n');
+      num++;
+    }
 
     // flutter defined function
     showDialog(
@@ -171,7 +179,7 @@ class _ListShuffleState extends State<ListShuffle> {
         // return object of type Dialog
         return AlertDialog(
           title: new Text('Shuffled list'),
-          content: new Text(shuffleText),
+          content: Text(shuffleText),
           actions: <Widget>[
             // usually buttons at the bottom of the dialog
             FlatButton(
