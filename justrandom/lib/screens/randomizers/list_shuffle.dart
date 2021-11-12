@@ -23,6 +23,7 @@ class ListShuffle extends StatefulWidget implements Randomizer {
 
   @override
   Color themeColor = kShuffleThemeColor;
+  Color primary = kPrimaryColor;
   Color textColor = kTextColor;
 
   @override
@@ -79,7 +80,7 @@ class _ListShuffleState extends State<ListShuffle> {
                   },
                   child: Icon(Icons.add),
                   style: ElevatedButton.styleFrom(
-                    primary: kTextColor,
+                    primary: kPrimaryColor,
                   ),
                 ),
               ),
