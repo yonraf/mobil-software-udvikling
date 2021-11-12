@@ -41,6 +41,7 @@ class _WheelOfFortuneState extends State<WheelOfFortune> {
   Widget build(BuildContext context) {
     return Scaffold(
         resizeToAvoidBottomInset: false,
+
         body: Column(children: [
           TopBar(WheelOfFortune()),
 
@@ -54,7 +55,7 @@ class _WheelOfFortuneState extends State<WheelOfFortune> {
                 animateFirst: false,
                 selected: selected.stream,
               ),
-              height: MediaQuery.of(context).size.height * 0.4,
+              height: MediaQuery.of(context).size.height * 0.35,
               margin: EdgeInsets.only(top: 40),
             ),
             onTap: () {
@@ -145,7 +146,7 @@ class _WheelOfFortuneState extends State<WheelOfFortune> {
   Widget InputField(String input) {
     if (input.isNotEmpty) {
       return Container(
-        alignment: Alignment.topLeft,
+        margin: EdgeInsets.only(right: MediaQuery.of(context).size.width * 0.45),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
