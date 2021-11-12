@@ -12,7 +12,7 @@ class Dice extends StatefulWidget implements Randomizer {
 
   @override
   String description =
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
+      'Choose the number of dices you wish to throw - and Roll Dice!';
 
   @override
   String name = 'Dice Throw';
@@ -78,7 +78,7 @@ class _DiceState extends State<Dice> {
                   Image.asset(
                     "assets/" + imageArray[number],
                     height: 150,
-                    width: 150,
+                    width: 150/diceCount + 40,
                   )
               ],
             ),
