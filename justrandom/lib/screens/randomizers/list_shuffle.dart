@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:html';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -13,16 +14,20 @@ class ListShuffle extends StatefulWidget implements Randomizer {
   ListShuffle();
   
   @override
-  String description = 'Shuffle list will take a list of elements and shuffle it random';
+  String description = 'Shuffle list will take a list of elements and shuffle '
+      'it random.\n\nSo first of all, type in elements in the input field.'
+      'Then shuffle.\n\nHave fun!';
 
   @override
   String name = 'Shuffle List';
 
   @override
   Color themeColor = kShuffleThemeColor;
+  Color textColor = kTextColor;
 
   @override
   _ListShuffleState createState() =>  _ListShuffleState();
+
 
 }
 
@@ -32,7 +37,7 @@ class _ListShuffleState extends State<ListShuffle> {
   late FocusNode focusNode;
   late String shuffleText;
 
-  List<String> inputs = [];
+  List<String> inputs = <String>[];
 
 
   @override
@@ -41,6 +46,11 @@ class _ListShuffleState extends State<ListShuffle> {
       resizeToAvoidBottomInset: false,
       body: Column(children: [
           TopBar(ListShuffle()),
+          const Divider(
+            color: kShuffleThemeColor,
+            thickness: 50,
+            height: 70,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -69,15 +79,17 @@ class _ListShuffleState extends State<ListShuffle> {
                   },
                   child: Icon(Icons.add),
                   style: ElevatedButton.styleFrom(
-                    primary: kShuffleThemeColor,
+                    primary: kTextColor,
                   ),
                 ),
-              )
+              ),
             ],
           ),
           Expanded(
             child: ListView(
-              children: [for (var element in inputs.reversed) inputField(element)],
+              children: [for (var element in inputs.reversed)
+                inputField(element),
+              ],
             ),
           ),
           ElevatedButton(
@@ -139,6 +151,7 @@ class _ListShuffleState extends State<ListShuffle> {
               input,
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
+                color: kTextColor,
                 ),
             ),
             IconButton(
@@ -158,32 +171,62 @@ class _ListShuffleState extends State<ListShuffle> {
     } else {return Container();}
   }
 
-  void resetShuffleText(){
-    shuffleText = '';
+  Widget dialogInput(int num, String input) {
+    if (input.isNotEmpty) {
+      return Container(
+        alignment: Alignment.topCenter,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Text(
+              num.toString()+': ',
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                color: kTextColor,
+              ),
+            ),
+            Text(
+              input,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontWeight: FontWeight.normal,
+                color: kTextColor,
+              ),
+            ),
+          ],
+        ),
+      );
+    } else {return Container();}
   }
 
   void _showDialog() {
-    resetShuffleText();
-    inputs.shuffle();
     int num = 1;
+    inputs.shuffle();
 
-    for (var element in inputs) {
-      shuffleText += (num.toString() + ':    ' + element + '\n');
-      num++;
-    }
-
-    // flutter defined function
     showDialog(
       context: context,
       builder: (BuildContext context) {
         // return object of type Dialog
         return AlertDialog(
-          title: new Text('Shuffled list'),
-          content: Text(shuffleText),
+          title: const Text('Shuffled list'),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                const Divider(color: kShuffleThemeColor),
+                ListBody(
+                  children: [
+                    for (var element in inputs)
+                      dialogInput(num++ ,element),
+                      const Divider(color: kShuffleThemeColor),
+                  ],
+                ),
+              ],
+            ),
+          ),
           actions: <Widget>[
-            // usually buttons at the bottom of the dialog
-            FlatButton(
-              child: new Text("Close"),
+            TextButton(
+              child: const Text('Close'),
               onPressed: () {
                 Navigator.of(context).pop();
               },
