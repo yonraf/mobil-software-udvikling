@@ -38,47 +38,51 @@ class _CoinFlipState extends State<CoinFlip> {
       body: Column(
         children: [
           TopBar(CoinFlip()),
-          TweenAnimationBuilder(
-              tween: Tween<double>(begin: 0, end: angle),
-              duration: Duration(seconds: 2),
-              builder: (BuildContext context, double val, __) {
+          Center(
+            heightFactor: 2.35,
+            child:TweenAnimationBuilder(
+                tween: Tween<double>(begin: 0, end: angle),
+                duration: Duration(seconds: 2),
+                builder: (BuildContext context, double val, __) {
 
-                if(val % pi > 1.56 && !spinCooldown) {
-                  isHeads = !isHeads;
-                  spinCooldown = true;
-                } else if (val % pi < 1.56) {
-                  spinCooldown = false;
-                }
+                  if(val % pi > 1.56 && !spinCooldown) {
+                    isHeads = !isHeads;
+                    spinCooldown = true;
+                  } else if (val % pi < 1.56) {
+                    spinCooldown = false;
+                  }
 
-                return Transform(
-                  alignment: Alignment.center,
-                  transform: Matrix4.identity()
-                    ..setEntry(3, 2, 0.001)
-                    ..rotateX(val),
-                  child: Container(
-                      width: 300,
-                      height: 300,
-                      child: isHeads
-                          ? Container(
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    image: AssetImage("assets/heads.png")),
-                              ),
-                            )
-                          : Container(
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    image: AssetImage("assets/tails.png")),
-                              ),
-                            )),
-                );
-              }),
+                  return Transform(
+                    alignment: Alignment.center,
+                    transform: Matrix4.identity()
+                      ..setEntry(3, 2, 0.001)
+                      ..rotateX(val),
+                    child: Container(
+                        width: 300,
+                        height: 300,
+                        child: isHeads
+                            ? Container(
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("assets/heads.png")),
+                          ),
+                        )
+                            : Container(
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("assets/tails.png")),
+                          ),
+                        )),
+                  );
+                }),
+          )
+,
           Padding(
-            padding: const EdgeInsets.only(top: 40),
+            padding: const EdgeInsets.only(top: 50),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 primary: CoinFlip().themeColor,
-                fixedSize: Size(MediaQuery.of(context).size.width * 0.90, MediaQuery.of(context).size.height * 0.1),
+                fixedSize: Size(MediaQuery.of(context).size.width * 0.45, MediaQuery.of(context).size.height * 0.1),
               ),
               onPressed: () {flipCoin();},
               child: Text(

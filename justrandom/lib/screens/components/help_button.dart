@@ -27,7 +27,9 @@ class HelpButton extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(randomizer.description),
+                        Container(
+                            constraints: BoxConstraints(minWidth: 150, maxWidth: 250),
+                            child: Text(randomizer.description)),
                       ],
 
                     )
