@@ -10,13 +10,11 @@ import '../components/top_bar.dart';
 import '../randomizer.dart';
 
 class WheelOfFortune extends StatefulWidget implements Randomizer {
-
   WheelOfFortune();
 
   @override
   String description =
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
-
+      'Enter the desired variables that has to be selected from, through the textfield. Add them to the wheel by pressing "+", and tap the wheel to spin and we will pick a random entry.';
   @override
   String name = 'Wheel of Fortune';
 
@@ -37,76 +35,96 @@ class _WheelOfFortuneState extends State<WheelOfFortune> {
     '',
   ];
 
+  //
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        resizeToAvoidBottomInset: false,
-
-        body: Column(children: [
-          TopBar(WheelOfFortune()),
-
-          // WHEEL OF FORTUNE
-          GestureDetector(
-            child: Container(
-              child: FortuneWheel(
-                items: [
-                  for (var input in inputs) FortuneItem(child: Text(input,))
-                ],
-                animateFirst: false,
-                selected: selected.stream,
-              ),
-              height: MediaQuery.of(context).size.height * 0.35,
-              margin: EdgeInsets.only(top: 40),
-            ),
-            onTap: () {
-              cooldownControl();
-            },
-          ),
-
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                padding: EdgeInsets.only(top: 30),
-                width: 200,
-                height: 70,
-                child: TextField(
-                  onSubmitted: (String str) {
-                    addName();
-                  },
-                  controller: inputController,
-                  decoration: const InputDecoration(
-                    contentPadding: EdgeInsets.only(top: 0, left: 10),
-                    border: OutlineInputBorder(),
-                    hintText: 'Enter a variable',
+        resizeToAvoidBottomInset: true,
+        body: Stack(
+          children: [
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                height: 200,
+                alignment: Alignment.bottomCenter,
+                child: Expanded(
+                  child: ListView(
+                    children: [
+                      for (var input in inputs.reversed) InputField(input)
+                    ],
                   ),
                 ),
               ),
-              Container(
-                padding: EdgeInsets.only(top: 30),
-                margin: EdgeInsets.only(left: 10),
-                height: 70,
-                child: ElevatedButton(
-                  onPressed: () {
-                    //AlertDialog(1);
-                    addName();
-                  },
-                  child: Icon(Icons.add),
-                  style: ElevatedButton.styleFrom(
-                    primary: kWheelThemeColor,
-                  ),
-                ),
-              )
-            ],
-          ),
-          Expanded(
-            child: ListView(
-              children: [for (var input in inputs.reversed) InputField(input)],
             ),
-          )
-        ]));
+            SingleChildScrollView(
+              padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * 0.2),
+              reverse: true,
+              child: Column(children: [
+                // WHEEL OF FORTUNE
+                GestureDetector(
+                  child: Container(
+                    child: FortuneWheel(
+                      items: [
+                        for (var input in inputs)
+                          FortuneItem(
+                              child: Text(
+                            input,
+                          ))
+                      ],
+                      animateFirst: false,
+                      selected: selected.stream,
+                    ),
+                    height: MediaQuery.of(context).size.height * 0.35,
+                    margin: EdgeInsets.only(top: 40),
+                  ),
+                  onTap: () {
+                    cooldownControl();
+                  },
+                ),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.only(top: 30),
+                      width: 200,
+                      height: 70,
+                      child: TextField(
+                        onSubmitted: (String str) {
+                          addName();
+                        },
+                        controller: inputController,
+                        decoration: const InputDecoration(
+                          contentPadding: EdgeInsets.only(top: 0, left: 10),
+                          border: OutlineInputBorder(),
+                          hintText: 'Enter a variable',
+                        ),
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(top: 30),
+                      margin: EdgeInsets.only(left: 10),
+                      height: 70,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          //AlertDialog(1);
+                          addName();
+                        },
+                        child: Icon(Icons.add),
+                        style: ElevatedButton.styleFrom(
+                          primary: kWheelThemeColor,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ]),
+            ),
+            TopBar(WheelOfFortune()),
+          ],
+        ));
   }
-
 
   @override
   void dispose() {
@@ -133,7 +151,8 @@ class _WheelOfFortuneState extends State<WheelOfFortune> {
 
   void addName() {
     var name = inputController.text;
-    if (!name.isEmpty) {
+
+    if (!name.isEmpty && name.replaceAll(RegExp(r'(\s*)'), '').length > 0) {
       if (inputs.contains('')) {
         inputs.remove(inputs.elementAt(inputs.indexOf('')));
       }
@@ -146,7 +165,8 @@ class _WheelOfFortuneState extends State<WheelOfFortune> {
   Widget InputField(String input) {
     if (input.isNotEmpty) {
       return Container(
-        margin: EdgeInsets.only(right: MediaQuery.of(context).size.width * 0.45),
+        margin:
+            EdgeInsets.only(right: MediaQuery.of(context).size.width * 0.45),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
@@ -182,7 +202,7 @@ class _WheelOfFortuneState extends State<WheelOfFortune> {
             actions: [
               CupertinoDialogAction(
                   child: Text(
-                      "Remove",
+                    "Remove",
                     style: TextStyle(
                       color: Colors.redAccent,
                     ),
@@ -207,4 +227,3 @@ class _WheelOfFortuneState extends State<WheelOfFortune> {
         });
   }
 }
-

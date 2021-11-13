@@ -25,7 +25,7 @@ class CoinFlip extends StatefulWidget implements Randomizer {
 
 class _CoinFlipState extends State<CoinFlip> {
   bool isHeads = true;
-  bool spinCooldown = false;
+  bool imageShiftCooldown = false;
 
   double angle = 0;
   int randomValue = 0;
@@ -39,17 +39,17 @@ class _CoinFlipState extends State<CoinFlip> {
         children: [
           TopBar(CoinFlip()),
           Center(
-            heightFactor: 2.35,
+            heightFactor: 1,
             child:TweenAnimationBuilder(
                 tween: Tween<double>(begin: 0, end: angle),
                 duration: Duration(seconds: 2),
                 builder: (BuildContext context, double val, __) {
 
-                  if(val % pi > 1.56 && !spinCooldown) {
+                  if(val % pi > 1.57 && !imageShiftCooldown) {
                     isHeads = !isHeads;
-                    spinCooldown = true;
-                  } else if (val % pi < 1.56) {
-                    spinCooldown = false;
+                    imageShiftCooldown = true;
+                  } else if (val % pi < 1.57) {
+                    imageShiftCooldown = false;
                   }
 
                   return Transform(

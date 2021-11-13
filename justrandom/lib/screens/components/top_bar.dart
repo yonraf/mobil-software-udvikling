@@ -13,6 +13,7 @@ class TopBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 100,
       padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
       child: AppBar(
         title: Text(randomizer.name, style: TextStyle(
