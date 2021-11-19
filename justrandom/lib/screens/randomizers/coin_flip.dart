@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
@@ -30,6 +31,8 @@ class _CoinFlipState extends State<CoinFlip> {
   double angle = 0;
   int randomValue = 0;
 
+  bool _flipCooldown = false;
+
 
   @override
   Widget build(BuildContext context) {
@@ -44,14 +47,12 @@ class _CoinFlipState extends State<CoinFlip> {
                 tween: Tween<double>(begin: 0, end: angle),
                 duration: Duration(seconds: 2),
                 builder: (BuildContext context, double val, __) {
-
                   if(val % pi > 1.57 && !imageShiftCooldown) {
                     isHeads = !isHeads;
                     imageShiftCooldown = true;
                   } else if (val % pi < 1.57) {
                     imageShiftCooldown = false;
                   }
-
                   return Transform(
                     alignment: Alignment.center,
                     transform: Matrix4.identity()
@@ -84,7 +85,15 @@ class _CoinFlipState extends State<CoinFlip> {
                 primary: CoinFlip().themeColor,
                 fixedSize: Size(MediaQuery.of(context).size.width * 0.45, MediaQuery.of(context).size.height * 0.1),
               ),
-              onPressed: () {flipCoin();},
+              onPressed: () {
+                if (!_flipCooldown) {
+                  _flipCooldown = true;
+                  flipCoin();
+                  Timer(Duration(milliseconds: 2500), () {
+                    _flipCooldown = false;
+                  });
+                }
+                },
               child: Text(
                   "FLIP",
                   style: TextStyle(
@@ -102,6 +111,7 @@ class _CoinFlipState extends State<CoinFlip> {
   }
 
   void flipCoin() {
+
       setState(() {
         randomValue = 6 + Random().nextInt(8-6);
         angle = (randomValue * pi) + angle;
