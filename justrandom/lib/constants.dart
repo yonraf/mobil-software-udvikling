@@ -1,3 +1,5 @@
+import 'dart:js';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -22,3 +24,12 @@ const kButtonTextStyle = TextStyle(
   fontFamily: 'Abel',
   fontWeight: FontWeight.w200,
 );
+
+const kTextStyle = TextStyle(
+    fontSize: 28,
+    fontFamily: 'Abel',
+    color: Colors.black,
+    fontWeight: FontWeight.w200,
+    decoration: TextDecoration.none,
+);
+
