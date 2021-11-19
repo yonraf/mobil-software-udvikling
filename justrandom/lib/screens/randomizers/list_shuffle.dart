@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:html';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -47,11 +46,6 @@ class _ListShuffleState extends State<ListShuffle> {
       resizeToAvoidBottomInset: false,
       body: Column(children: [
           TopBar(ListShuffle()),
-          const Divider(
-            color: kShuffleThemeColor,
-            thickness: 50,
-            height: 70,
-          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -142,7 +136,7 @@ class _ListShuffleState extends State<ListShuffle> {
   }
 
   Widget inputField(String input) {
-    if (input.isNotEmpty) {
+    if (input.isNotEmpty && input.contains('')) {
       return Container(
         alignment: Alignment.topCenter,
         child: Row(
