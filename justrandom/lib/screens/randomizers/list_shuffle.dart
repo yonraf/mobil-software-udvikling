@@ -116,9 +116,8 @@ class _ListShuffleState extends State<ListShuffle> {
 
   void addElement() {
     var input = inputController.text;
-    if (input.isNotEmpty) {
+    if (input.isNotEmpty && input.replaceAll(RegExp(r'(\s*)'), '').length > 0) {
       if (inputs.where((element) => element == '') == true) {
-        //inputs.remove(inputs.elementAt(inputs.indexOf(''));
         inputs.removeWhere((element) => element == '');
       }
       inputs.add(input);

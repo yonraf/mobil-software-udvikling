@@ -35,53 +35,79 @@ class _RandomNumberState extends State<RandomNumber> {
   @override
   Widget build(BuildContext context) {
 
-    return new Scaffold(
-        body: Container(
-            color: kBackgroundColor,
-            child: Column(
-                children: [
-                  TopBar(RandomNumber()),
-                  Center(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Container(
-                              margin: const EdgeInsets.all(50.0),
-
-                              child: Padding(
-                                padding: const EdgeInsets.fromLTRB(0, 50,0,0),
-                                child: Text(
-                                  '$randomNumber',
-                                  style: TextStyle(
-                                    fontFamily: 'Abel',
-                                    color: kNumberThemeColor,
-                                    fontWeight: FontWeight.w200,
-                                    decoration: TextDecoration.none,
-                                    fontSize: 40,
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+        backgroundColor: kBackgroundColor,
+        body: Column(
+            children: [
+              TopBar(RandomNumber()),
+              Expanded(
+                child: Center(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Container(
+                            margin: const EdgeInsets.only(top: 100, bottom: 50),
+                            child: Text(
+                              '$randomNumber',
+                              style: TextStyle(
+                                fontFamily: 'Abel',
+                                color: kNumberThemeColor,
+                                fontWeight: FontWeight.w200,
+                                decoration: TextDecoration.none,
+                                fontSize: 40,
+                              ),
+                            )
+                        ),
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children:  <Widget> [
+                              Column(
+                                children: [
+                                  Text(
+                                      "Minimum number"
                                   ),
-                                ),
-                              )
-                          ),
-                          Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children:  <Widget> [
-                                Column(
+                                  Container(
+                                      margin: const EdgeInsets.all(10.0),
+                                      decoration: new BoxDecoration(
+                                          shape: BoxShape.rectangle,
+                                          border: new Border.all(
+                                            color: Colors.black,
+                                            width: 1.0,
+                                          )),
+                                      width: 150,
+                                      child: new TextField(
+                                        //decoration: new InputDecoration(labelText: "Minimum number", ),
+                                        textInputAction: TextInputAction.next,
+                                        controller: minNumber,
+                                        keyboardType: TextInputType.number,
+                                        textAlign: TextAlign.center,
+                                        inputFormatters: <TextInputFormatter>[
+                                          FilteringTextInputFormatter.digitsOnly
+                                        ], // Only numbers can be entered
+                                      )
+                                  )
+                                ],
+                              ),
+                              Column(
                                   children: [
-                                    Text(
-                                        "Minimum number"
+                                    Text("Maximum number",
+                                      textAlign: TextAlign.start,
+
                                     ),
                                     Container(
                                         margin: const EdgeInsets.all(10.0),
+                                        width: 150,
                                         decoration: new BoxDecoration(
                                             shape: BoxShape.rectangle,
                                             border: new Border.all(
                                               color: Colors.black,
-                                              width: 1.0,
-                                            )),
-                                        width: 150,
-                                        child: new TextField(
-                                          //decoration: new InputDecoration(labelText: "Minimum number", ),
-                                          controller: minNumber,
+                                              width: 0.5,
+                                            )
+                                        ),
+                                        child:new TextField(
+                                          controller: maxNumber,
+                                          onSubmitted: (String str) { run(); },
                                           keyboardType: TextInputType.number,
                                           textAlign: TextAlign.center,
                                           inputFormatters: <TextInputFormatter>[
@@ -89,94 +115,54 @@ class _RandomNumberState extends State<RandomNumber> {
                                           ], // Only numbers can be entered
                                         )
                                     )
-
-                                  ],
-                                )
-
-                                ,
-                                Column(
-                                    children: [
-                                      Text("Maximum number",
-                                        textAlign: TextAlign.start,
-
-                                      ),
-                                      Container(
-                                          margin: const EdgeInsets.all(10.0),
-
-                                          width: 150,
-                                          decoration: new BoxDecoration(
-                                              shape: BoxShape.rectangle,
-                                              border: new Border.all(
-                                                color: Colors.black,
-                                                width: 0.5,
-                                              )
-                                          ),
-                                          child:new TextField(
-                                            controller: maxNumber,
-                                            keyboardType: TextInputType.number,
-                                            textAlign: TextAlign.center,
-                                            inputFormatters: <TextInputFormatter>[
-                                              FilteringTextInputFormatter.digitsOnly
-                                            ], // Only numbers can be entered
-                                          )
-                                      )
-                                    ]
-                                )
-
-
-                              ]
-                          )
-                          ,  Container(
-                              padding: EdgeInsets.all(20.0),
-                              height: 75.0,
-                              width: 150.0,
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  primary: Colors.redAccent,
-                                ),
-                                child: Text('Clear'),
-                                onPressed: clear
-                                ,
+                                  ]
                               )
+                            ]
+                        ),
+                        Expanded(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Container(
+                                  padding: EdgeInsets.only(top:20, bottom: 10),
+                                  height: 75.0,
+                                  width: 150.0,
+                                  child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      primary: Colors.redAccent,
+                                    ),
+                                    child: Text('Clear'),
+                                    onPressed: clear,
+                                  )
+                              ),
+                              Container(
+                                padding: EdgeInsets.all(25.0),
+                                child:
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    primary: RandomNumber().themeColor,
+                                    fixedSize: Size(MediaQuery.of(context).size.width * 0.90, MediaQuery.of(context).size.height * 0.1),
+                                  ),
+                                  onPressed: run,
+                                  child: Text(
+                                      "Generate",
+                                      style: TextStyle(
+                                        fontSize: 30,
+                                        fontFamily: 'Abel',
+                                        fontWeight: FontWeight.w200,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                            ],
                           ),
+                        )
+                      ],
 
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 50, 0, 0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget> [
-                                Container(
-                                    padding: EdgeInsets.all(20.0),
-                                    child: ElevatedButton(
-                                      style: ElevatedButton.styleFrom(
-                                        primary: RandomNumber().themeColor,
-                                        fixedSize: Size(MediaQuery.of(context).size.width * 0.3, MediaQuery.of(context).size.height * 0.1),
-
-                                      ),
-
-                                      child: Text('Generate',
-                                        style: TextStyle(
-                                          fontSize: 30,
-                                          fontFamily: 'Abel',
-                                          fontWeight: FontWeight.w200,
-                                        ),
-                                      ),
-                                      onPressed: run
-                                      ,
-                                    )
-                                )
-
-                              ],
-                            ),
-                          )
-
-
-                        ],
-
-                      )
-                  ),
-                ]
-            )
+                    )
+                ),
+              ),
+            ]
         )
     );
 

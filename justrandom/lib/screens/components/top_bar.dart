@@ -21,7 +21,9 @@ class TopBar extends StatelessWidget {
           color: Colors.black,
           fontWeight: FontWeight.w200,
           decoration: TextDecoration.none,
-          fontSize: 40,
+          fontSize: MediaQuery.of(context).size.width < 700
+              ? MediaQuery.of(context).size.width * 0.09
+              : 45
         ),),
         leading : HomeButton(randomizer.themeColor),
         actions: [
