@@ -1,3 +1,3 @@
 # mobil-software-udvikling
 
-Dette projekt er super sejt!
+Welcome to JustRandom, the all-in-one app for everything random!
