@@ -41,6 +41,7 @@ class _CoinFlipState extends State<CoinFlip> {
       body: Column(
         children: [
           TopBar(CoinFlip()),
+          Padding(padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.05)),
           Center(
             heightFactor: 1,
             child:TweenAnimationBuilder(
@@ -77,33 +78,32 @@ class _CoinFlipState extends State<CoinFlip> {
                   );
                 }),
           )
-,
-          Padding(
-            padding: const EdgeInsets.only(top: 50),
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                primary: CoinFlip().themeColor,
-                fixedSize: Size(MediaQuery.of(context).size.width * 0.45, MediaQuery.of(context).size.height * 0.1),
-              ),
-              onPressed: () {
-                if (!_flipCooldown) {
-                  _flipCooldown = true;
-                  flipCoin();
-                  Timer(Duration(milliseconds: 2500), () {
-                    _flipCooldown = false;
-                  });
-                }
-                },
-              child: Text(
-                  "FLIP",
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontFamily: 'Abel',
-                    fontWeight: FontWeight.w200,
+          ,
+          Expanded(
+              child: Container(
+                alignment: Alignment.bottomCenter,
+                padding: EdgeInsets.only(bottom: 25, top: 10),
+                child : ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: CoinFlip().themeColor,
+                    fixedSize: Size(MediaQuery.of(context).size.width * 0.9, MediaQuery.of(context).size.height * 0.1),
                   ),
-                ),
+                  onPressed: () {
+                    if (!_flipCooldown) {
+                      _flipCooldown = true;
+                      flipCoin();
+                      Timer(Duration(milliseconds: 2500), () {
+                        _flipCooldown = false;
+                      });
+                    }
+                  },
+                  child: Text(
+                    "FLIP",
+                    style: kButtonTextStyle,
+                  ),
 
-            )
+                ),
+              )
           ),
         ],
       ),
@@ -112,10 +112,10 @@ class _CoinFlipState extends State<CoinFlip> {
 
   void flipCoin() {
 
-      setState(() {
-        randomValue = 6 + Random().nextInt(8-6);
-        angle = (randomValue * pi) + angle;
-      });
+    setState(() {
+      randomValue = 6 + Random().nextInt(8-6);
+      angle = (randomValue * pi) + angle;
+    });
   }
 
 
