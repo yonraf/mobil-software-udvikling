@@ -32,4 +32,3 @@ const kTextStyle = TextStyle(
     fontWeight: FontWeight.w200,
     decoration: TextDecoration.none,
 );
-

@@ -38,6 +38,8 @@ class _WheelOfFortuneState extends State<WheelOfFortune> {
   //
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
         resizeToAvoidBottomInset: true,
         body: Stack(
@@ -57,8 +59,7 @@ class _WheelOfFortuneState extends State<WheelOfFortune> {
               ),
             ),
             SingleChildScrollView(
-              padding: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.2),
+              padding: EdgeInsets.only(top: screenHeight * 0.2),
               reverse: true,
               child: Column(children: [
                 // WHEEL OF FORTUNE
@@ -75,7 +76,7 @@ class _WheelOfFortuneState extends State<WheelOfFortune> {
                       animateFirst: false,
                       selected: selected.stream,
                     ),
-                    height: MediaQuery.of(context).size.height * 0.35,
+                    height: screenHeight * 0.35,
                     margin: EdgeInsets.only(top: 40),
                   ),
                   onTap: () {

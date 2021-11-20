@@ -11,6 +11,8 @@ import 'list_shuffle.dart';
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: Align(
         alignment: Alignment.center,
@@ -18,7 +20,7 @@ class Home extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Padding(
-              padding: EdgeInsets.fromLTRB(0, 5, 0, MediaQuery.of(context).size.height * 0.03),
+              padding: EdgeInsets.fromLTRB(0, 5, 0, screenHeight * 0.03),
               child: Image(
                 image: AssetImage('assets/logo.png'),
                 height: 45,

@@ -9,9 +9,8 @@ import 'package:justrandom/screens/randomizer.dart';
 import '../components/top_bar.dart';
 
 class ListShuffle extends StatefulWidget implements Randomizer {
-
   ListShuffle();
-  
+
   @override
   String description = 'Shuffle list will take a list of elements and shuffle '
       'it random.\n\nSo first of all, type in elements in the input field.'
@@ -26,9 +25,7 @@ class ListShuffle extends StatefulWidget implements Randomizer {
   Color textColor = kTextColor;
 
   @override
-  _ListShuffleState createState() =>  _ListShuffleState();
-
-
+  _ListShuffleState createState() => _ListShuffleState();
 }
 
 class _ListShuffleState extends State<ListShuffle> {
@@ -39,79 +36,75 @@ class _ListShuffleState extends State<ListShuffle> {
 
   List<String> inputs = <String>[];
 
-
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Column(children: [
-          TopBar(ListShuffle()),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                padding: EdgeInsets.only(top: 30),
-                width: 300,
-                height: 70,
-                  child: TextField(
-                    autofocus: true,
-                    onSubmitted: (String str) { addElement();},
-                    controller: inputController,
-                    decoration: const InputDecoration(
-                      contentPadding: EdgeInsets.only(top: 0, left: 10),
-                      border: OutlineInputBorder(),
-                      hintText: 'Enter element',
-                    ),
-                  ),
-              ),
-              Container(
-                padding: EdgeInsets.only(top: 30),
-                margin: EdgeInsets.only(left: 10),
-                height: 70,
-                child: ElevatedButton(
-                  onPressed: () {
-                    addElement();
-                  },
-                  child: Icon(Icons.add),
-                  style: ElevatedButton.styleFrom(
-                    primary: kPrimaryColor,
-                  ),
+        TopBar(ListShuffle()),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              padding: EdgeInsets.only(top: 30),
+              width: 300,
+              height: 70,
+              child: TextField(
+                autofocus: true,
+                onSubmitted: (String str) {
+                  addElement();
+                },
+                controller: inputController,
+                decoration: const InputDecoration(
+                  contentPadding: EdgeInsets.only(top: 0, left: 10),
+                  border: OutlineInputBorder(),
+                  hintText: 'Enter element',
                 ),
               ),
+            ),
+            Container(
+              padding: EdgeInsets.only(top: 30),
+              margin: EdgeInsets.only(left: 10),
+              height: 70,
+              child: ElevatedButton(
+                onPressed: () {
+                  addElement();
+                },
+                child: Icon(Icons.add),
+                style: ElevatedButton.styleFrom(
+                  primary: kPrimaryColor,
+                ),
+              ),
+            ),
+          ],
+        ),
+        Expanded(
+          child: ListView(
+            children: [
+              for (var element in inputs.reversed) inputField(element),
             ],
           ),
-          Expanded(
-            child: ListView(
-              children: [for (var element in inputs.reversed)
-                inputField(element),
-              ],
-            ),
-          ),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              primary: ListShuffle().themeColor,
-              fixedSize: Size(MediaQuery.of(context).size.width * 0.90, MediaQuery.of(context).size.height * 0.1),
-            ),
-            onPressed: run,
-            child: const Padding(
-              padding: EdgeInsets.all(10.0),
-              child: Text(
-                "Shuffle",
-                style: TextStyle(
-                  fontSize: 30,
-                  fontFamily: 'Abel',
-                  fontWeight: FontWeight.w200,
-                ),
-              ),
-            ),
-          ),
-        const Padding(
-            padding: EdgeInsets.only(bottom: 30)
         ),
-        ]
-      ),
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            primary: ListShuffle().themeColor,
+            fixedSize: Size(screenWidth * 0.90, screenHeight * 0.1),
+          ),
+          onPressed: run,
+          child: const Padding(
+            padding: EdgeInsets.all(10.0),
+            child: Text(
+              "Shuffle",
+              style: kButtonTextStyle,
+            ),
+          ),
+        ),
+        const Padding(padding: EdgeInsets.only(bottom: 25)),
+      ]),
     );
-
   }
 
   void addElement() {
@@ -146,7 +139,7 @@ class _ListShuffleState extends State<ListShuffle> {
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 color: kTextColor,
-                ),
+              ),
             ),
             IconButton(
               onPressed: () {
@@ -162,7 +155,9 @@ class _ListShuffleState extends State<ListShuffle> {
           ],
         ),
       );
-    } else {return Container();}
+    } else {
+      return Container();
+    }
   }
 
   Widget dialogInput(int num, String input) {
@@ -173,7 +168,7 @@ class _ListShuffleState extends State<ListShuffle> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
-              num.toString()+': ',
+              num.toString() + ': ',
               textAlign: TextAlign.center,
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
@@ -191,7 +186,9 @@ class _ListShuffleState extends State<ListShuffle> {
           ],
         ),
       );
-    } else {return Container();}
+    } else {
+      return Container();
+    }
   }
 
   void _showDialog() {
@@ -210,9 +207,8 @@ class _ListShuffleState extends State<ListShuffle> {
                 const Divider(color: kShuffleThemeColor),
                 ListBody(
                   children: [
-                    for (var element in inputs)
-                      dialogInput(num++ ,element),
-                      const Divider(color: kShuffleThemeColor),
+                    for (var element in inputs) dialogInput(num++, element),
+                    const Divider(color: kShuffleThemeColor),
                   ],
                 ),
               ],
@@ -236,5 +232,4 @@ class _ListShuffleState extends State<ListShuffle> {
       _showDialog();
     });
   }
-
 }
