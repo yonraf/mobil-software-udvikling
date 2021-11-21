@@ -1,8 +1,11 @@
+import 'dart:js';
+
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 //Indsæt farver og padding for tema
 
-const kPrimaryColor = Color.fromARGB(0xFF, 0xFF, 0x57, 0x57);
+const kPrimaryColor = Color.fromARGB(0xFF, 0x2A, 0x9D, 0x8F);
 const kTextColor = Color.fromARGB(0xFF, 0x28, 0x18, 0x46);
 const kBackgroundColor = Color.fromARGB(0xFF, 0xEE, 0xEE, 0xED);
 
@@ -15,3 +18,17 @@ const kCoinThemeColor = Color.fromARGB(0xFF, 0xE7, 0x6F, 0x51);
 const kDarkerDetailColor = Color.fromARGB(0xFF, 0x28, 0x28, 0x46);
 
 const double kDefaultPadding = 20.0;
+
+const kButtonTextStyle = TextStyle(
+  fontSize: 30,
+  fontFamily: 'Abel',
+  fontWeight: FontWeight.w200,
+);
+
+const kTextStyle = TextStyle(
+    fontSize: 28,
+    fontFamily: 'Abel',
+    color: Colors.black,
+    fontWeight: FontWeight.w200,
+    decoration: TextDecoration.none,
+);

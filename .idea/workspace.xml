@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f368d41e-346e-46c2-a44c-0e89ce3591e9" name="Default Changelist" comment="dice.dart&#10;- Fixed layout to bottom &#10;- Fixed padding&#10;&#10;constants.dart&#10;- added styling constants">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/justrandom/lib/constants.dart" beforeDir="false" afterPath="$PROJECT_DIR$/justrandom/lib/constants.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/justrandom/lib/screens/randomizers/home.dart" beforeDir="false" afterPath="$PROJECT_DIR$/justrandom/lib/screens/randomizers/home.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/justrandom/lib/screens/randomizers/list_shuffle.dart" beforeDir="false" afterPath="$PROJECT_DIR$/justrandom/lib/screens/randomizers/list_shuffle.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/justrandom/lib/screens/randomizers/random_number.dart" beforeDir="false" afterPath="$PROJECT_DIR$/justrandom/lib/screens/randomizers/random_number.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/justrandom/lib/screens/randomizers/wheel_of_fortune.dart" beforeDir="false" afterPath="$PROJECT_DIR$/justrandom/lib/screens/randomizers/wheel_of_fortune.dart" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="1zbekYdLVHFwFNPLQdPK5quegNf" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="flutter.settings" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/justrandom/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Flutter.main.dart" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f368d41e-346e-46c2-a44c-0e89ce3591e9" name="Default Changelist" comment="" />
+      <created>1634421357739</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1634421357739</updated>
+    </task>
+    <task id="LOCAL-00001" summary="sdada">
+      <created>1635503612886</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1635503612886</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Dice Throw Updated&#10;- &quot;+, -&quot; buttons added&#10;- layout &amp; colors fixed">
+      <created>1636109035142</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1636109035142</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Dice Throw Updated&#10;- &quot;+, -&quot; buttons added&#10;- layout &amp; colors fixed">
+      <created>1636110604608</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1636110604608</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Dice Throw Updated V2&#10;- Add/remove more dices&#10;- Generate random numbers based on dice number">
+      <created>1636114121744</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1636114121744</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Dice Throw Updated V2&#10;- Add/remove more dices&#10;- Generate random numbers based on dice number">
+      <created>1636114631720</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1636114631720</updated>
+    </task>
+    <task id="LOCAL-00006" summary="dice.dart&#10;- Fixed layout to bottom &#10;- Fixed padding&#10;&#10;constants.dart&#10;- added styling constants">
+      <created>1637327463609</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1637327463609</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="sdada" />
+    <MESSAGE value="Dice Throw Updated&#10;- &quot;+, -&quot; buttons added&#10;- layout &amp; colors fixed" />
+    <MESSAGE value="Dice Throw Updated V2&#10;- Add/remove more dices&#10;- Generate random numbers based on dice number" />
+    <MESSAGE value="dice.dart&#10;- Fixed layout to bottom &#10;- Fixed padding&#10;&#10;constants.dart&#10;- added styling constants" />
+    <option name="LAST_COMMIT_MESSAGE" value="dice.dart&#10;- Fixed layout to bottom &#10;- Fixed padding&#10;&#10;constants.dart&#10;- added styling constants" />
+  </component>
+</project>
